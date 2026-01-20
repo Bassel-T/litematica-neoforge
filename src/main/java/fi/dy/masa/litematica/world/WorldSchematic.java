@@ -641,6 +641,26 @@ public class WorldSchematic extends Level
     }
 
     @Override
+    public void setDayTimeFraction(float f) {
+
+    }
+
+    @Override
+    public float getDayTimeFraction() {
+        return 0;
+    }
+
+    @Override
+    public float getDayTimePerTick() {
+        return 0;
+    }
+
+    @Override
+    public void setDayTimePerTick(float f) {
+
+    }
+
+    @Override
     public @Nonnull FeatureFlagSet enabledFeatures()
     {
         if (this.mc != null && this.mc.level != null)

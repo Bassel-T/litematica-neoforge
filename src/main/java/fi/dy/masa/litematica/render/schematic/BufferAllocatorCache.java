@@ -4,12 +4,12 @@ import com.mojang.blaze3d.vertex.ByteBufferBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
+//import net.fabricmc.api.EnvType;
+//import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.rendertype.RenderType;
 
-@Environment(EnvType.CLIENT)
+//@Environment(EnvType.CLIENT)
 public class BufferAllocatorCache implements AutoCloseable
 {
     protected static final List<ChunkSectionLayer> BLOCK_LAYERS = ChunkRenderLayers.BLOCK_RENDER_LAYERS;
