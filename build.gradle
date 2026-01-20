@@ -116,6 +116,8 @@ jar {
 	}
 }
 
+remapJar.atAccessWideners.add("litematica.accesswidener")
+
 tasks.publish.dependsOn build
 publishing {
 	publications {
