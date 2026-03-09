@@ -611,7 +611,7 @@ public class WorldUtils
 
         if (closest)
         {
-            pos = RayTraceUtils.getSchematicWorldTraceIfClosest(mc.level, mc.player, getValidBlockRange(mc));
+            pos = RayTraceUtils.getSchematicWorldTraceIfClosestNoFluids(mc.level, mc.player, getValidBlockRange(mc));
         }
         else
         {
@@ -846,7 +846,7 @@ public class WorldUtils
                     }
                 }
 
-                //System.out.printf("doEasyPlaceAction - stateSchematic [%s] // sideOrig [%s]\n", stateSchematic.toString(), sideOrig.getName());
+//                System.out.printf("doEasyPlaceAction - stateSchematic [%s] // sideOrig [%s]\n", stateSchematic.toString(), sideOrig.getName());
 
                 Direction side = applyPlacementFacing(stateSchematic, sideOrig, stateClient);
 
@@ -1134,7 +1134,7 @@ public class WorldUtils
         int shiftAmount = 1;
         int propCount = 0;
 
-        //System.out.printf("(WorldUtils):v3: hit vec.x %s, pos.x: %s\n", hitVecIn.getX(), pos.getX());
+        //System.out.printf("(WorldUtils):v3: hit vec.x %s, pos.x: %s\n", hitVecIn.x(), pos.getX());
         //System.out.printf("(WorldUtils):v3: raw protocol value in: 0x%08X\n", protocolValue);
 
         Optional<EnumProperty<Direction>> property = BlockUtils.getFirstDirectionProperty(state);
@@ -1178,18 +1178,16 @@ public class WorldUtils
 
                     if (valueIndex != -1)
                     {
-                        //System.out.printf("(WorldUtils):v3: requesting: %s = %s, index: %d\n", prop.getName(), state.get(prop), valueIndex);
+                        //System.out.printf("(WorldUtils):v3: requesting: %s = %s, index: %d\n", prop.getName(), state.getValue(prop), valueIndex);
                         protocolValue |= (valueIndex << shiftAmount);
                         shiftAmount += requiredBits;
                         ++propCount;
                     }
                 }
-                /*
                 else
                 {
-                    System.out.printf("(WorldUtils):v3: skipping prot val: 0x%08X [Property %s]\n", protocolValue, p.getName());
+                    //System.out.printf("(WorldUtils):v3: skipping prot val: 0x%08X [Property %s]\n", protocolValue, p.getName());
                 }
-                 */
             }
         }
         catch (Exception e)
