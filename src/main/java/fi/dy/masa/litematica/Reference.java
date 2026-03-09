@@ -1,7 +1,6 @@
 package fi.dy.masa.litematica;
 
 import net.minecraft.SharedConstants;
-import net.fabricmc.loader.api.FabricLoader;
 
 import fi.dy.masa.malilib.MaLiLibReference;
 import fi.dy.masa.malilib.util.StringUtils;
