@@ -7,7 +7,7 @@ range-mafglib = "[0.4,)"
 mod-link = "https://github.com/CagayakeGirls/litematica-neoforge"
 
 version-env = "client"
-version-type = "alpha"
+version-type = "beta"
 
 platformId-curseforge = "912441"
 platformId-modrinth = "dCKRaeBC"
