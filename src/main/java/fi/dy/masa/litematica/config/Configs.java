@@ -408,11 +408,11 @@ public class Configs implements IConfigHandler
 
     public static void loadFromFile()
     {
-        Path configFile = FileUtils.getConfigDirectoryAsPath().resolve(CONFIG_FILE_NAME);
+        Path configFile = FileUtils.getConfigDirectory().resolve(CONFIG_FILE_NAME);
 
         if (Files.exists(configFile) && Files.isReadable(configFile))
         {
-            JsonElement element = JsonUtils.parseJsonFileAsPath(configFile);
+            JsonElement element = JsonUtils.parseJsonFile(configFile);
 
             if (element != null && element.isJsonObject())
             {
@@ -424,7 +424,7 @@ public class Configs implements IConfigHandler
                 ConfigUtils.readConfigBase(root, "InfoOverlays", InfoOverlays.OPTIONS);
                 ConfigUtils.readConfigBase(root, "Visuals", Visuals.OPTIONS);
 
-                //Litematica.debugLog("loadFromFile(): Successfully loaded config file '{}'.", configFile.toAbsolutePath());
+                Litematica.debugLogError("loadFromFile(): Successfully loaded config file '{}'.", configFile.toAbsolutePath());
             }
             else
             {
@@ -432,9 +432,9 @@ public class Configs implements IConfigHandler
             }
         }
 
-        DataManager.setToolItem(Generic.TOOL_ITEM.getStringValue());
         if (Minecraft.getInstance().level != null)
         {
+            DataManager.setToolItem(Generic.TOOL_ITEM.getStringValue());
             DataManager.getInstance().setToolItemComponents(Generic.TOOL_ITEM_COMPONENTS.getStringValue(), Minecraft.getInstance().level.registryAccess());
         }
         InventoryUtils.setPickBlockableSlots(Generic.PICK_BLOCKABLE_SLOTS.getStringValue());
@@ -444,12 +444,12 @@ public class Configs implements IConfigHandler
 
     public static void saveToFile()
     {
-        Path dir = FileUtils.getConfigDirectoryAsPath();
+        Path dir = FileUtils.getConfigDirectory();
 
         if (!Files.exists(dir))
         {
             FileUtils.createDirectoriesIfMissing(dir);
-            //Litematica.debugLog("saveToFile(): Creating directory '{}'.", dir.toAbsolutePath());
+            Litematica.debugLogError("saveToFile(): Creating directory '{}'.", dir.toAbsolutePath());
         }
 
         if (Files.isDirectory(dir))
@@ -462,7 +462,7 @@ public class Configs implements IConfigHandler
             ConfigUtils.writeConfigBase(root, "InfoOverlays", InfoOverlays.OPTIONS);
             ConfigUtils.writeConfigBase(root, "Visuals", Visuals.OPTIONS);
 
-            JsonUtils.writeJsonToFileAsPath(root, dir.resolve(CONFIG_FILE_NAME));
+            JsonUtils.writeJsonToFile(root, dir.resolve(CONFIG_FILE_NAME));
         }
         else
         {

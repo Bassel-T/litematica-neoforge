@@ -1,4 +1,4 @@
-package fi.dy.masa.litematica.mixin.block;
+package fi.dy.masa.litematica.mixin.model;
 
 import java.util.Map;
 import net.minecraft.client.resources.model.BlockStateDefinitions;
@@ -7,6 +7,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import com.google.common.collect.ImmutableMap;
+
+import fi.dy.masa.litematica.render.schematic.FallbackBlocks;
+
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Mutable;
@@ -14,8 +17,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import fi.dy.masa.litematica.render.schematic.blocks.FallbackBlocks;
 
 @Mixin(BlockStateDefinitions.class)
 public class MixinBlockStateDefinitions

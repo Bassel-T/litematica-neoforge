@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import fi.dy.masa.malilib.gui.widgets.WidgetListBase;
 import fi.dy.masa.malilib.render.GuiContext;
-import fi.dy.masa.malilib.util.ItemType;
+import fi.dy.masa.malilib.util.data.ItemType;
 import fi.dy.masa.malilib.util.StringUtils;
 import fi.dy.masa.litematica.config.Configs;
 import fi.dy.masa.litematica.gui.GuiSchematicVerifier;
