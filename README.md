@@ -61,3 +61,4 @@ dependencies {
 ## Credits
 - [maruohon/litematica](https://github.com/maruohon/litematica)
 - [sakura-ryoko/litematica](https://github.com/sakura-ryoko/litematica)
+- [CagayakeGirls/litematica-neoforge](https://github.com/CagayakeGirls/litematica-neoforge)
